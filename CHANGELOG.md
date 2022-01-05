@@ -3,6 +3,15 @@
 ## [Unreleased]
 
 
+## [2.1.1] - 2022-01-04
+
+### Changed
+* Use `window.crypto` if available to generate random strings [#138](https://github.com/moberwasserlechner/capacitor-oauth2/issues/138) [#140](https://github.com/moberwasserlechner/capacitor-oauth2/pull/140)
+
+### Fixed
+* Web: # in URL causes parser to ignore ?  [#132](https://github.com/moberwasserlechner/capacitor-oauth2/issues/132) [#133](https://github.com/moberwasserlechner/capacitor-oauth2/pull/133)
+
+
 ## [2.1.0] - 2020-08-27
 
 ### Added
