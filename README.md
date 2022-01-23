@@ -36,7 +36,7 @@ For further details on what has changed see the [CHANGELOG](https://github.com/m
 
 I would like to especially thank some people and companies for supporting my work on this plugin and therefore improving it for everybody.
 
-* [Mark Laurence](https://github.com/UnclearMaker) and the [Royal Veterinary College](https://www.rvc.ac.uk/) - Thanks for supporting open source.
+* [Mark Laurence](https://github.com/UnclearMaker) and the [Royal Veterinary College](https://www.rvc.ac.uk/) ([GH](https://github.com/RoyalVeterinaryCollege)) - Thanks for supporting open source.
 
 ## Maintainers
 

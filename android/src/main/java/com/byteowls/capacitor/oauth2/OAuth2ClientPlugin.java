@@ -138,13 +138,19 @@ public class OAuth2ClientPlugin extends Plugin {
             } else {
                 if (response1 != null) {
                     try {
-                        JSObject json = new JSObject(response1.jsonSerializeString());
+                        String jsonSerializeString = response1.jsonSerializeString();
+                        if (oauth2Options.isLogsEnabled()) {
+                            Log.i(getLogTag(), "RefreshToken response:\n" + jsonSerializeString);
+                        }
+                        JSObject json = new JSObject(jsonSerializeString);
                         call.resolve(json);
                     } catch (JSONException e) {
                         call.reject(ERR_GENERAL, e);
                     }
-
                 } else {
+                    if (oauth2Options.isLogsEnabled()) {
+                        Log.i(getLogTag(), "RefreshToken response: No response received!");
+                    }
                     call.reject(ERR_NO_ACCESS_TOKEN);
                 }
             }
