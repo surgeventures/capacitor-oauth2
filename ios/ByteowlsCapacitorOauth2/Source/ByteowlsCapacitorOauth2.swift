@@ -50,6 +50,7 @@ public class OAuth2ClientPlugin: CAPPlugin {
     
     let ERR_CUSTOM_HANDLER_LOGIN = "ERR_CUSTOM_HANDLER_LOGIN"
     let ERR_CUSTOM_HANDLER_LOGOUT = "ERR_CUSTOM_HANDLER_LOGOUT"
+    let ERR_ACCESS_DENIED = "ERR_ACCESS_DENIED"
     let ERR_STATES_NOT_MATCH = "ERR_STATES_NOT_MATCH"
     let ERR_NO_AUTHORIZATION_CODE = "ERR_NO_AUTHORIZATION_CODE"
     let ERR_AUTHORIZATION_FAILED = "ERR_AUTHORIZATION_FAILED"
@@ -118,6 +119,8 @@ public class OAuth2ClientPlugin: CAPPlugin {
             return
         }
         
+        let logsEnabled: Bool = getOverwritable(call, self.PARAM_LOGS_ENABLED) as? Bool ?? false
+        
         let oauthSwift = OAuth2Swift(
             consumerKey: appId,
             consumerSecret: "", // never ever store the app secret on client!
@@ -139,15 +142,22 @@ public class OAuth2ClientPlugin: CAPPlugin {
             switch result {
             case .success(let tokenSuccess):
                 do {
-                    let jsonObj = try JSONSerialization.jsonObject(with: tokenSuccess.response!.data, options: []) as! JSObject
+                    let refreshResponse = tokenSuccess.response!.data
+                    if logsEnabled {
+                        self.logDataObj("RefreshToken response:", refreshResponse)
+                    }
+                    
+                    let jsonObj = try JSONSerialization.jsonObject(with: refreshResponse, options: []) as! JSObject
                     call.resolve(jsonObj)
                 } catch {
-                    self.log("Invalid json in renew access token response \(error.localizedDescription)")
+                    self.log("RefreshToken response: Invalid json in response \(error.localizedDescription)")
                     call.reject(self.ERR_GENERAL)
                 }
             case .failure(let error):
                 switch error {
-                case .cancelled, .accessDenied(_, _):
+                case .accessDenied(_, _):
+                    call.reject(self.ERR_ACCESS_DENIED)
+                case .cancelled:
                     call.reject(SharedConstants.ERR_USER_CANCELLED)
                 case .stateNotEqual( _, _):
                     self.log("The given state does not match the one in the respond!")
