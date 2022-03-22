@@ -33,6 +33,7 @@ public class OAuth2ClientPlugin: CAPPlugin {
     let PARAM_STATE = "state"
     let PARAM_PKCE_ENABLED = "pkceEnabled"
     let PARAM_IOS_USE_SCOPE = "ios.siwaUseScope"
+    let PARAM_IOS_JUST_AUTH_CODE = "ios.justAuthorizationCode"
     let PARAM_LOGOUT_URL = "logoutUrl"
     let PARAM_LOGS_ENABLED = "logsEnabled"
     
