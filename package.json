@@ -16,7 +16,7 @@
         "removePacked": "rm -f capacitor-oauth2-*.tgz",
         "publishLocally": "npm run removePacked && npm run build && npm pack",
         "prepublishOnly": "npm run build",
-        "prepublish": "npm run build"
+        "postinstall": "npm run build"
     },
     "files": [
         "android/src/main/",
