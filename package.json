@@ -3,7 +3,7 @@
     "version": "3.0.1",
     "description": "Capacitor OAuth 2 client plugin",
     "author": "Michael Oberwasserlechner",
-    "homepage": "https://github.com/moberwasserlechner/capacitor-oauth2",
+    "homepage": "https://github.com/surgeventures/capacitor-oauth2",
     "license": "MIT",
     "main": "dist/esm/index.js",
     "module": "dist/esm/index.js",
@@ -41,10 +41,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/moberwasserlechner/capacitor-oauth2"
+        "url": "https://github.com/surgeventures/capacitor-oauth2"
     },
     "bugs": {
-        "url": "https://github.com/moberwasserlechner/capacitor-oauth2/issues"
+        "url": "https://github.com/surgeventures/capacitor-oauth2/issues"
     },
     "publishConfig": {
         "access": "public"
