@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.source_files = 'ios/ByteowlsCapacitorOauth2/Source/*.{swift,h,m,c,cc,mm,cpp}'
   s.ios.deployment_target  = '12.0'
   s.dependency 'Capacitor'
-  # Podspecs does not support private git repos, so
-  # the dependency is ensured by the project.
-  # s.dependency 'OAuthSwift', '2.2.0'
+  # Podspecs does not support private git repos, we are using
+  # our private Cocoapods repo with fork.
+  s.dependency 'FreshaOAuthSwift', '2.2.1'
   s.swift_version = '5.1'
 end
