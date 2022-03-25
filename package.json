@@ -18,13 +18,6 @@
         "prepublishOnly": "npm run build",
         "postinstall": "npm run build"
     },
-    "files": [
-        "android/src/main/",
-        "android/build.gradle",
-        "dist/",
-        "ios/ByteowlsCapacitorOauth2/Source",
-        "ByteowlsCapacitorOauth2.podspec"
-    ],
     "keywords": [
         "capacitor",
         "capacitor-plugin",
@@ -50,9 +43,11 @@
     "publishConfig": {
         "access": "public"
     },
+    "peerDependencies": {
+        "@capacitor/core": "^3.0.0"
+    },
     "dependencies": {
-        "typescript": "4.1.5",
-        "@capacitor/core": "3.4.0"
+        "typescript": "4.3.5"
     },
     "devDependencies": {
         "@capacitor/android": "3.0.2",
