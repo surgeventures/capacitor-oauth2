@@ -1,6 +1,6 @@
 import Foundation
 import Capacitor
-import OAuthSwift
+import FreshaOAuthSwift
 import CommonCrypto
 import AuthenticationServices
 
